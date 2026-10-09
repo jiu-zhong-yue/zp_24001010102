@@ -28,4 +28,19 @@ public class HelloController {
         info.put("status", "运行中");
         return Result.success(info);
     }
+
+
+    @GetMapping("/health")
+    public Result<Map<String, Object>> health() {
+        Map<String, Object> data = new HashMap<>();
+        data.put("status", "UP");
+        data.put("app", "recruitment-website");
+        return Result.success(data);
+    }
+
+
+    @GetMapping("/now")
+    public Result<String> now() {
+        return Result.success(LocalDateTime.now().toString());
+    }
 }
